@@ -326,7 +326,9 @@ public class PlantUMLClassDiagramGenerator {
             for (final Annotation annotation : annotations) {
                 if (includeClass(annotation.getClass())) {
                     final UMLRelationship relationship = new UMLRelationship(null, null, null,
-                            paramClassObject.getName(), annotation.getClass().getName(), RelationshipType.ASSOCIATION);
+                            plantUMLConfig.isSimplifyDiagrams() ? paramClassObject.getSimpleName() : paramClassObject.getName(),
+                            plantUMLConfig.isSimplifyDiagrams() ? annotation.getClass().getSimpleName() : annotation.getClass().getName(),
+                            RelationshipType.ASSOCIATION);
                     addRelationship(umlClass, relationship);
                 }
             }
@@ -367,7 +369,9 @@ public class PlantUMLClassDiagramGenerator {
             for (final Class<?> interfaceElement : interfaces) {
                 if (includeClass(interfaceElement)) {
                     final UMLRelationship relationship = new UMLRelationship(null, null, null,
-                            paramClassObject.getName(), interfaceElement.getName(), RelationshipType.REALIZATION);
+                            plantUMLConfig.isSimplifyDiagrams() ? paramClassObject.getSimpleName() : paramClassObject.getName(),
+                            plantUMLConfig.isSimplifyDiagrams() ? interfaceElement.getSimpleName() : interfaceElement.getName(),
+                            RelationshipType.REALIZATION);
                     addRelationship(paramUmlClass, relationship);
                 }
             }
@@ -387,7 +391,8 @@ public class PlantUMLClassDiagramGenerator {
         final Class<?> superClass = paramClassObject.getSuperclass();
         if (superClass != null && includeClass(superClass)) {
             final UMLRelationship relationship = new UMLRelationship(null, null, null, paramClassObject.getName(),
-                    superClass.getName(), RelationshipType.INHERITANCE);
+                    plantUMLConfig.isSimplifyDiagrams() ? superClass.getSimpleName() : superClass.getName(),
+                    RelationshipType.INHERITANCE);
             addRelationship(paramUmlClass, relationship);
         }
     }
@@ -601,7 +606,9 @@ public class PlantUMLClassDiagramGenerator {
                     // do nothing - skip processing
                 } else if (includeClass(type)) {
                     final UMLRelationship relationship = new UMLRelationship(null, null, field.getName(),
-                            field.getDeclaringClass().getName(), type.getName(), RelationshipType.DIRECTED_ASSOCIATION);
+                            plantUMLConfig.isSimplifyDiagrams() ? field.getDeclaringClass().getSimpleName() : field.getDeclaringClass().getName(),
+                            plantUMLConfig.isSimplifyDiagrams() ? type.getSimpleName() : type.getName(),
+                            RelationshipType.DIRECTED_ASSOCIATION);
                     addRelationship(paramUmlClass, relationship);
                 } else {
                     addFieldToUMLClass(paramUmlClass, field, type, paramDeclaredMethods);
@@ -737,7 +744,8 @@ public class PlantUMLClassDiagramGenerator {
                     final Class<?> typeArgumentClass = getClassForType(typeArgument);
                     if (((typeArgumentClass != null) && includeClass(typeArgumentClass))) {
                         final UMLRelationship relationship = new UMLRelationship("1", "0..*", paramField.getName(),
-                                paramField.getDeclaringClass().getName(), (typeArgumentClass).getName(),
+                                plantUMLConfig.isSimplifyDiagrams() ? paramField.getDeclaringClass().getSimpleName() : paramField.getDeclaringClass().getName(),
+                                plantUMLConfig.isSimplifyDiagrams() ? (typeArgumentClass).getSimpleName() : (typeArgumentClass).getName(),
                                 RelationshipType.AGGREGATION);
                         addRelationship(paramUmlClass, relationship);
                         isRelationshipAggregation = true;

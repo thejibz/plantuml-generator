@@ -172,6 +172,7 @@ public class PlantUMLClassDiagramGenerator {
         // PlantUMLDiagramElements
         final StringBuilder builder = new StringBuilder();
         builder.append("@startuml");
+        builder.append(System.lineSeparator());
         builder.append(plantUMLConfig.getDiagramDirection());
         builder.append(System.lineSeparator());
         builder.append(System.lineSeparator());

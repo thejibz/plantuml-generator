@@ -111,6 +111,16 @@ public class PlantUMLConfigBuilder {
         return this;
     }
 
+    /**
+     * @param diagramDirection
+     * @return PlantUMLConfigBuilder
+     */
+    public PlantUMLConfigBuilder withDiagramDirection(String diagramDirection) {
+        if (diagramDirection != null && diagramDirection.length() > 0)
+            plantUMLConfig.setDiagramDirection(diagramDirection);
+        return this;
+    }
+
     public PlantUMLConfigBuilder withMaximumMethodVisibility(VisibilityType paramVisibility) {
         plantUMLConfig.setMaxVisibilityMethods(paramVisibility);
         return this;

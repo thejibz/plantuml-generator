@@ -142,9 +142,13 @@ add this plugin specific configuration:
   ** private - all methods will be displayed
   if not removed or ignored by other parameters
 * *simplifyDiagrams* -
-  a toggle to
-  ** use simple names (omitting package infos) in the Plant UML diagram
-  ** just print the type of parameters in method signatures.
+  Optional. A toggle to
+  ** use simple names (omitting package infos) in the diagram
+  ** just print the type of parameters in method signatures (avoiding random parameter names)
+* *diagramDirection* -
+  Optional. A string specifying the diagram direction. Valid values are
+  ** top to bottom direction
+  ** left to right direction
 * *fieldClassifierListToIgnore* -
   a list of classifiers which mark fields as to be ignored during the creation of the diagram
 * *methodClassifierListToIgnore* -

@@ -20,6 +20,7 @@ public class PlantUMLConfig {
 	private boolean simplifyDiagrams = false;
 	private String fieldBlacklistRegexp = null;
 	private String methodBlacklistRegexp = null;
+	private String diagramDirection = null;
 	private VisibilityType maxVisibilityFields = VisibilityType.PRIVATE;
 	private VisibilityType maxVisibilityMethods = VisibilityType.PRIVATE;
 	private List<ClassifierType> fieldClassifierToIgnore = new ArrayList<>();
@@ -235,7 +236,22 @@ public class PlantUMLConfig {
 		this.methodBlacklistRegexp = methodBlacklistRegexp;
 	}
 
-	
+	/**
+	 * @return String
+	 */
+	public String getDiagramDirection() {
+		return diagramDirection;
+	}
+
+
+	/**
+	 * @param diagramDirection
+	 */
+	protected void setDiagramDirection(String diagramDirection) {
+		this.diagramDirection = diagramDirection;
+	}
+
+
 	/** 
 	 * @return VisibilityType
 	 */

@@ -123,6 +123,10 @@ public class PlantUMLGeneratorMojo extends AbstractMojo {
 	@Parameter(property = PREFIX + "simplifyDiagrams", defaultValue = "false", required = false)
 	private boolean simplifyDiagrams;
 
+	/** The diagramDirection. */
+	@Parameter(property = PREFIX + "diagramDirection", defaultValue = "", required = false)
+	private String diagramDirection;
+
 	/** The descriptor. */
 	@Parameter(defaultValue = "${plugin}", readonly = true)
 	private PluginDescriptor descriptor;
@@ -160,7 +164,7 @@ public class PlantUMLGeneratorMojo extends AbstractMojo {
 					.withHideMethods(hideMethods).addFieldClassifiersToIgnore(fieldClassifierListToIgnore)
 					.addMethodClassifiersToIgnore(methodClassifierListToIgnore).withRemoveFields(removeFields)
 					.withRemoveMethods(removeMethods).withSimplifyDiagrams(simplifyDiagrams).withFieldBlacklistRegexp(fieldBlacklistRegexp)
-					.withMethodBlacklistRegexp(methodBlacklistRegexp).withMaximumFieldVisibility(maxVisibilityFields)
+					.withMethodBlacklistRegexp(methodBlacklistRegexp).withDiagramDirection(diagramDirection).withMaximumFieldVisibility(maxVisibilityFields)
 					.withMaximumMethodVisibility(maxVisibilityMethods);
 			classDiagramGenerator = new PlantUMLClassDiagramGenerator(configBuilder.build());
 			String classDiagramText = classDiagramGenerator.generateDiagramText();

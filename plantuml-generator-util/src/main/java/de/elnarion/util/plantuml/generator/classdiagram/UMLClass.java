@@ -98,7 +98,7 @@ public class UMLClass implements PlantUMLDiagramElement {
 	}
 
 	@Override
-	public String getDiagramText() {
+	public String getDiagramText(boolean simplifyDiagrams) {
 		boolean isAnnotation = false;
 		StringBuilder builder = new StringBuilder();
 		isAnnotation = addClassType(isAnnotation, builder);
@@ -116,7 +116,7 @@ public class UMLClass implements PlantUMLDiagramElement {
 				});
 				for (UMLField field : fields) {
 					builder.append("\t");
-					builder.append(field.getDiagramText());
+					builder.append(field.getDiagramText(simplifyDiagrams));
 					builder.append(System.lineSeparator());
 				}
 			}
@@ -124,7 +124,7 @@ public class UMLClass implements PlantUMLDiagramElement {
 				Collections.sort(methods, new UMLMethodComparator());
 				for (UMLMethod method : methods) {
 					builder.append("\t");
-					builder.append(method.getDiagramText());
+					builder.append(method.getDiagramText(simplifyDiagrams));
 					builder.append(System.lineSeparator());
 				}
 			}

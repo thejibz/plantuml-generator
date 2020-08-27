@@ -26,3 +26,5 @@ hs_err_pid*
 /.classpath
 plantuml-generator-maven-plugin/.factorypath
 .vscode/settings.json
+.idea/
+*.iml

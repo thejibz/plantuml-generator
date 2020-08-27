@@ -83,6 +83,15 @@ public class PlantUMLConfigBuilder {
     }
 
     /**
+     * @param paramSimplifyDiagrams
+     * @return PlantUMLConfigBuilder
+     */
+    public PlantUMLConfigBuilder withSimplifyDiagrams(boolean paramSimplifyDiagrams) {
+        plantUMLConfig.setSimplifyDiagrams(paramSimplifyDiagrams);
+        return this;
+    }
+
+    /**
      * @param paramBlacklistFieldRegexp
      * @return PlantUMLConfigBuilder
      */

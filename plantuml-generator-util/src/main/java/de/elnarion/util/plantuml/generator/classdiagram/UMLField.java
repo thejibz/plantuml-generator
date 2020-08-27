@@ -66,7 +66,7 @@ public class UMLField implements PlantUMLDiagramElement {
 	}
 
 	@Override
-	public String getDiagramText() {
+	public String getDiagramText(boolean simplifyDiagrams) {
 		StringBuilder builder = new StringBuilder();
 		builder.append("{field} ");
 		if (classifierType != null && classifierType == ClassifierType.STATIC) {

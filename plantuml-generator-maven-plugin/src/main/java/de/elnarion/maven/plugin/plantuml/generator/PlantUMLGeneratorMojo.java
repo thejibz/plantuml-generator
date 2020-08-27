@@ -119,6 +119,10 @@ public class PlantUMLGeneratorMojo extends AbstractMojo {
 	@Parameter(property = PREFIX + "maxVisibilityMethods", defaultValue = "PRIVATE", required = false)
 	private VisibilityType maxVisibilityMethods = VisibilityType.PRIVATE;
 
+	/** The simplify diagrams. */
+	@Parameter(property = PREFIX + "simplifyDiagrams", defaultValue = "false", required = false)
+	private boolean simplifyDiagrams;
+
 	/** The descriptor. */
 	@Parameter(defaultValue = "${plugin}", readonly = true)
 	private PluginDescriptor descriptor;
@@ -155,7 +159,7 @@ public class PlantUMLGeneratorMojo extends AbstractMojo {
 			configBuilder.withClassLoader(loader).withHideClasses(hideClasses).withHideFieldsParameter(hideFields)
 					.withHideMethods(hideMethods).addFieldClassifiersToIgnore(fieldClassifierListToIgnore)
 					.addMethodClassifiersToIgnore(methodClassifierListToIgnore).withRemoveFields(removeFields)
-					.withRemoveMethods(removeMethods).withFieldBlacklistRegexp(fieldBlacklistRegexp)
+					.withRemoveMethods(removeMethods).withSimplifyDiagrams(simplifyDiagrams).withFieldBlacklistRegexp(fieldBlacklistRegexp)
 					.withMethodBlacklistRegexp(methodBlacklistRegexp).withMaximumFieldVisibility(maxVisibilityFields)
 					.withMaximumMethodVisibility(maxVisibilityMethods);
 			classDiagramGenerator = new PlantUMLClassDiagramGenerator(configBuilder.build());
@@ -334,6 +338,25 @@ public class PlantUMLGeneratorMojo extends AbstractMojo {
 	public void setHideClasses(List<String> hideClasses) {
 		this.hideClasses = hideClasses;
 	}
+
+	/**
+	 * Checks if is simplify diagrams.
+	 *
+	 * @return true, if is simplify diagrams
+	 */
+	public boolean isSimplifyDiagrams() {
+		return simplifyDiagrams;
+	}
+
+	/**
+	 * Sets the simplify diagrams.
+	 *
+	 * @param simplifyDiagrams the simplify diagrams
+	 */
+	public void setSimplifyDiagrams(boolean simplifyDiagrams) {
+		this.simplifyDiagrams = simplifyDiagrams;
+	}
+
 
 	/**
 	 * Gets the descriptor.

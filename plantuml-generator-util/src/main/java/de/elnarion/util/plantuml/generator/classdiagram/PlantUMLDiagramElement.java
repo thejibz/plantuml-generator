@@ -9,7 +9,8 @@ public interface PlantUMLDiagramElement {
 	/**
 	 * Gets the diagram text.
 	 *
+	 * @param simplifyDiagrams the simplify diagrams
 	 * @return String - the diagram text
 	 */
-	String getDiagramText();
+	String getDiagramText(boolean simplifyDiagrams);
 }

@@ -17,6 +17,7 @@ public class PlantUMLConfig {
 	private boolean hideMethods = false;
 	private boolean removeFields = false;
 	private boolean removeMethods = false;
+	private boolean simplifyDiagrams = false;
 	private String fieldBlacklistRegexp = null;
 	private String methodBlacklistRegexp = null;
 	private VisibilityType maxVisibilityFields = VisibilityType.PRIVATE;
@@ -188,7 +189,21 @@ public class PlantUMLConfig {
 		this.removeMethods = removeMethods;
 	}
 
-		
+	/**
+	 * @return boolean
+	 */
+	public boolean isSimplifyDiagrams() {
+		return simplifyDiagrams;
+	}
+
+
+	/**
+	 * @param simplifyDiagrams
+	 */
+	protected void setSimplifyDiagrams(boolean simplifyDiagrams) {
+		this.simplifyDiagrams = simplifyDiagrams;
+	}
+
 	/** 
 	 * @return String
 	 */
